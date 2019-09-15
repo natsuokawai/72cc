@@ -54,13 +54,13 @@ bool consume(char op) {
 
 void expect(char op) {
   if (token->kind != TK_RESERVED || token->str[0] != op)
-    error_at(token->str, "'%c'ではありません。", op);
+    error_at(token->str, "'%c' is expected.", op);
   token = token->next;
 }
 
 int expect_number() {
   if (token->kind != TK_NUM)
-    error_at(token->str, "数ではありません");
+    error_at(token->str, "Number is expected.");
   int val = token->val;
   token = token->next;
   return val;
@@ -101,7 +101,7 @@ Token *tokenize() {
       continue;
     } 
 
-    error_at(p, "トークナイズできません");
+    error_at(p, "Failed to tokenize.");
   }
 
   new_token(TK_EOF, cur, p);
@@ -110,7 +110,7 @@ Token *tokenize() {
 
 int main(int argc, char **argv) {
   if (argc != 2) {
-    error("引数の個数が正しくありません");
+    error("The number of arguments is incorrect.");
     return 1;
   }
 
@@ -135,6 +135,4 @@ int main(int argc, char **argv) {
 
   printf("  ret\n");
   return 0;
-
-
 }
