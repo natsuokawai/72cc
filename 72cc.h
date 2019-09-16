@@ -21,8 +21,6 @@ struct Token {
   int len;
 };
 
-Token *token;
-
 typedef enum {
   ND_ADD,
   ND_SUB,
@@ -44,6 +42,12 @@ struct Node {
   int val;
 };
 
+Token *token;
+char *user_input;
+
 Node *expr();
 Token *tokenize();
 void gen(Node *node);
+
+void error(char *fmt, ...);
+void error_at(char *loc, char *fmt, ...);
