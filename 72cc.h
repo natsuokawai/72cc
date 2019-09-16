@@ -43,3 +43,7 @@ struct Node {
   Node *rhs;
   int val;
 };
+
+Node *expr();
+Token *tokenize();
+void gen(Node *node);
