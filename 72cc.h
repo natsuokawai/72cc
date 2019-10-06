@@ -56,12 +56,13 @@ typedef enum {
 typedef struct Node Node;
 struct Node {
   NodeKind kind;
+  Node *next;
   Node *lhs;
   Node *rhs;
   int val;
 };
 
-Node *expr();
+Node *program(void);
 
 //
 // codegen.c
